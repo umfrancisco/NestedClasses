@@ -2,9 +2,8 @@ package com.umfrancisco;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.umfrancisco.domain.Employee;
-import com.umfrancisco.domain.EmployeeComparator;
+import com.umfrancisco.domain.StoreEmployee;
 
 public class Main {
 	public static void main(String[] args) {
@@ -23,6 +22,20 @@ public class Main {
 		employees.sort(new Employee.EmployeeComparator<>("yearStarted").reversed());
 		
 		for (var e : employees) {
+			System.out.println(e);
+		}
+		
+		List<StoreEmployee> storeEmployees = new ArrayList<>(List.of(
+				new StoreEmployee(10015, "Meg", 2019, "Target"),
+				new StoreEmployee(10515, "Joe", 2021, "Walmart"),
+				new StoreEmployee(10105, "Tom", 2020, "Macys"),
+				new StoreEmployee(10215, "Marty", 2018, "Walmart"),
+				new StoreEmployee(10322, "Bud", 2016, "Target")));
+		
+		var comparator = new StoreEmployee().new StoreComparator<>();
+		storeEmployees.sort(comparator);
+		
+		for (var e : storeEmployees) {
 			System.out.println(e);
 		}
 	}
